@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ua">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <title>Login Form in HTML and CSS | by Neketobro</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link href="css/text/Roboto_Condensed.zip" rel="stylesheet">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    transition: all 0.5s;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(img/background-light.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: all 2s;
+}
+
+/* toggle theme light/dark */
+
+.panel {
+    height: 100px;
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+}
+
+.messages, .switch {
+    width: 160px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgb(0, 0, 0, .2);
+    color: white;
+    border-radius: 20px 20px 0 0;
+    padding: 5px 20px;
+    display: block;
+    text-align: center;
+}
+
+.switch {
+    width: 160px;
+}
+
+.switch_block {
+    display: none;
+}
+
+label[for="check"], label[for="switchBlock"] {
+    cursor: pointer;
+}
+
+input[type="checkbox"]#check, input[type="checkbox"]#switchBlock, input[type="checkbox"]#switchBlock1 {
+    appearance: none;
+}
+
+#check[type="checkbox"] {
+    position: relative;
+    width: 55px;
+    height: 30px;
+    outline: none;
+    background: transparent;
+    border: 2px solid gray;
+    border-radius: 50px;
+    transition: .3s all;
+    cursor: pointer;
+}
+
+#check:checked[type="checkbox"] {
+    background: #f0f0f063;   
+}
+
+#check[type="checkbox"]::before {
+    content:'';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    transform: scale(1.1);
+    border-radius: 50%;
+    background: #d1d1d1;
+    left: 25%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s all;
+}
+
+#check:checked[type="checkbox"]::before {
+    background: #333;
+    left: 75%;
+}
+
+/* wrapper */
+
+.block {
+    width: 420px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px rgb(0, 0, 0, .2);
+    color: white;
+    border-radius: 20px;
+    padding: 30px 40px;
+    display: block;
+}
+
+.block:last-child {
+    display: none;
+}
+
+/* title */
+
+.block .title {
+    display: flex;
+    flex-direction: column;
+}
+
+.title .text-title {
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title h1 {
+    text-align: center;
+    font-size: 42px;
+    font-weight: bold;
+}
+
+/* form */
+
+.block .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid gray;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #ffffff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder {
+    color: #ffffff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.block .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+    accent-color: #fff;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+.block #btn, .block #reg-btn {
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px black;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.block #btn:hover, .block #reg-btn:hover {
+    transform: scale(1.1);
+}
+
+.block #btn:active, .block #reg-btn:active {
+    transform: scale(1.0);
+}
+
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+    
+}
+
+.register-link p button {
+    color: #fff;
+    background: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-left: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.register-link p button:active {
+    font-size: 12px;
+    color: #979797;
+}
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+
+        <!-- messages-panel -->
+
+            <!-- messages-block -->
+            
+            <div class="panel">
+                <div class="messages">
+                    <div id="error"></div>
+                </div>
+    
+                <!-- toggle theme light/dark -->
+    
+                <div class="switch">
+                    <div class="switch_block">
+                        <label for="check">Switch theme :</label><br>
+                        <input type="checkbox" id="check">
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOGIN -->
+
+            <div class="block">
+                <form action="" onsubmit="return checkForm(this)">
+
+                    <div class="title">
+                        <div class="text-title">
+                            <input type="checkbox" id="switchBlock">
+                            <label for="switchBlock">Switch theme</label>
+                        </div>
+                        <h1>Login</h1>
+                    </div>
+
+                    <!-- input from -->
+
+                    <div class="input-box">
+                        <input id="inputUsername" type="text" name="username" placeholder="Username" maxlength="15" required>
+                        <i class="bx bxs-user"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" id="inputPassword" placeholder="Password" maxlength="15" required>
+                        <i class="bx bxs-lock-alt" ></i>
+                    </div>
+    
+                    <div class="remember-forgot">
+                        <label for="Remember"><input type="checkbox" id="Remember"> Remember me</label>
+                        <a href="#">Forgot password?</a>
+                    </div>
+
+                    <!-- buttom form -->
+    
+                    <button id="btn" type="submit">Login</button>
+    
+                </form>
+
+                <div class="register-link">
+                    <p>Don't have an account?<button id="btnReg">Register</button></p>
+                </div>
+
+            </div>
+
+            <!-- REGISTER -->
+
+            <div class="block">
+                <form action="">
+
+                    <div class="title">
+                        <div class="text-title">
+                            <input type="checkbox" id="switchBlock1">
+                            <label for="switchBlock">Switch theme</label>
+                        </div>
+                        <h1>Register</h1>
+                    </div>
+
+                    <div class="input-box">
+                        <input class="input-user" type="text" name="text" placeholder="Your username" maxlength="15" required>
+                        <i class="bx bxs-user"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" placeholder="Enter password" maxlength="15" required>
+                        <i class="bx bxs-lock-alt" ></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" placeholder="Repeat password" maxlength="15" required>
+                        <i class="bx bxs-lock-alt" ></i>
+                    </div>
+    
+                    <button id="reg-btn" type="submit">Register</button>
+    
+                </form>
+
+                <div class="register-link">
+                    <p>I`m have an account! <button id="btnLog">Loign</button></p>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <script>
+            //Switch Theme light or dark
+
+            //Open\Close
+            document.addEventListener('DOMContentLoaded', function() {
+                const switchBlock = document.getElementById('switchBlock');
+                const block = document.querySelector('.switch_block');
+                
+                switchBlock.addEventListener('change', function() {
+                    if (switchBlock.checked) {
+                        block.style.display = 'block';
+                    } else {
+                        block.style.display = 'none';
+                    }
+                });
+            });
+
+            //ON\OFF
+            document.addEventListener('click', function() {
+                const checkbox = document.getElementById('check');
+                const body = document.body;
+                
+                checkbox.addEventListener('change', function() {
+                    if (checkbox.checked) {
+                        body.style.backgroundImage = "url('img/background-dark.jpg')"; // Нова картинка - *зображення має бути відносно файлу index.html
+                    } else {
+                        body.style.backgroundImage = "url('img/background-light.jpg')"; // Початкова картинка - *зображення має бути відносно файлу index.html
+                    }
+                });
+            });
+
+
+            //Form - complete or error
+
+            function checkForm(el) {
+                let user = el.inputUsername.value;
+                let pass = el.inputPassword.value;
+                let errorStyle = document.getElementById('error');
+                let error = '';
+
+                if(user.length < 5) {
+                    error = 'Error username';
+                    errorStyle.style.color = 'red';
+                    errorStyle.style.fontWeight = 'bold';
+                } else if(pass.length < 5) {
+                    error = 'Error password';
+                    errorStyle.style.color = 'red';
+                    errorStyle.style.fontWeight = 'bold';
+                }
+
+                if(error != '') {
+                    document.getElementById('error').innerText = 'Message: ' + error;
+                    return false;
+                } else (error == '')
+                    document.getElementById('error').innerHTML = "Complete!";
+                    errorStyle.style.color = 'green';
+                    errorStyle.style.fontWeight = 'bold';
+                    window.location = "https://www.google.com.ua/?hl=uk";
+                    return false;
+            };
+
+
+            //Switch to Register
+            document.getElementById('btnReg').addEventListener('click', function() {
+                const block = document.querySelector('.block');
+                const blockBefore = document.querySelector('.block:last-child');
+
+                block.style.display = 'none';
+                blockBefore.style.display = 'block';
+            });
+
+            //Switch to Login
+            document.getElementById('btnLog').addEventListener('click', function() {
+                const block = document.querySelector('.block');
+                const blockBefore = document.querySelector('.block:last-child');
+
+                block.style.display = 'block';
+                blockBefore.style.display = 'none';
+            });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ua">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <title>Login Form in HTML and CSS | by Neketobro</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link href="css/text/Roboto_Condensed.zip" rel="stylesheet">
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="wrapper">
+
+        <!-- messages-panel -->
+
+            <!-- messages-block -->
+            
+            <div class="panel">
+                <div class="messages">
+                    <div id="error"></div>
+                </div>
+    
+                <!-- toggle theme light/dark -->
+    
+                <div class="switch">
+                    <div class="switch_block">
+                        <label for="check">Switch theme :</label><br>
+                        <input type="checkbox" id="check">
+                    </div>
+                </div>
+            </div>
+
+            <!-- LOGIN -->
+
+            <div class="block">
+                <form action="" onsubmit="return checkForm(this)">
+
+                    <div class="title">
+                        <div class="text-title">
+                            <input type="checkbox" id="switchBlock">
+                            <label for="switchBlock">Switch theme</label>
+                        </div>
+                        <h1>Login</h1>
+                    </div>
+
+                    <!-- input from -->
+
+                    <div class="input-box">
+                        <input id="inputUsername" type="text" name="username" placeholder="Username" maxlength="15" required>
+                        <i class="bx bxs-user"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" id="inputPassword" placeholder="Password" maxlength="15" required>
+                        <i class="bx bxs-lock-alt" ></i>
+                    </div>
+    
+                    <div class="remember-forgot">
+                        <label for="Remember"><input type="checkbox" id="Remember"> Remember me</label>
+                        <a href="#">Forgot password?</a>
+                    </div>
+
+                    <!-- buttom form -->
+    
+                    <button id="btn" type="submit">Login</button>
+    
+                </form>
+
+                <div class="register-link">
+                    <p>Don't have an account?<button id="btnReg">Register</button></p>
+                </div>
+
+            </div>
+
+            <!-- REGISTER -->
+
+            <div class="block">
+                <form action="">
+
+                    <div class="title">
+                        <div class="text-title">
+                            <input type="checkbox" id="switchBlock1">
+                            <label for="switchBlock">Switch theme</label>
+                        </div>
+                        <h1>Register</h1>
+                    </div>
+
+                    <div class="input-box">
+                        <input class="input-user" type="text" name="text" placeholder="Your username" maxlength="15" required>
+                        <i class="bx bxs-user"></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" placeholder="Enter password" maxlength="15" required>
+                        <i class="bx bxs-lock-alt" ></i>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="password" placeholder="Repeat password" maxlength="15" required>
+                        <i class="bx bxs-lock-alt" ></i>
+                    </div>
+    
+                    <button id="reg-btn" type="submit">Register</button>
+    
+                </form>
+
+                <div class="register-link">
+                    <p>I`m have an account! <button id="btnLog">Loign</button></p>
+                </div>
+                
+            </div>
+        </div>
+        
+
+        <script src="js/index.js"></script>
+    </body>
+</html>
